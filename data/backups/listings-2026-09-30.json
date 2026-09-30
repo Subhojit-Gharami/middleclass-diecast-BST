@@ -1,0 +1,71 @@
+{
+  "nextNumber": 4,
+  "listings": [
+    {
+      "id": "MCD001",
+      "type": "TRADE",
+      "postedAt": "2026-09-29T10:30:00+05:30",
+      "expiresAt": "2026-10-06T10:30:00+05:30",
+      "owner": "Aman",
+      "city": "Kolkata",
+      "contact": [
+        {
+          "platform": "Instagram",
+          "value": "@example_collector",
+          "url": "https://instagram.com/example_collector"
+        }
+      ],
+      "brand": "Hot Wheels",
+      "casting": "Porsche 911 GT3",
+      "details": "I have a clean carded Porsche 911 GT3. Looking for a premium Porsche or JDM casting.",
+      "have": "Hot Wheels Porsche 911 GT3",
+      "want": "Premium Porsche / JDM",
+      "price": "",
+      "image": ""
+    },
+    {
+      "id": "MCD002",
+      "type": "ISO",
+      "postedAt": "2026-09-28T18:00:00+05:30",
+      "expiresAt": "2026-10-05T18:00:00+05:30",
+      "owner": "Rohit",
+      "city": "Mumbai",
+      "contact": [
+        {
+          "platform": "WhatsApp",
+          "value": "+91 90000 00000",
+          "url": "https://wa.me/919000000000"
+        }
+      ],
+      "brand": "Mini GT",
+      "casting": "LBWK Nissan Skyline R34",
+      "details": "Looking for a sealed Mini GT LBWK Nissan Skyline R34. Box condition should be good.",
+      "have": "",
+      "want": "",
+      "price": "",
+      "image": ""
+    },
+    {
+      "id": "MCD003",
+      "type": "SELL",
+      "postedAt": "2026-09-27T12:00:00+05:30",
+      "expiresAt": "2026-10-04T12:00:00+05:30",
+      "owner": "Sayan",
+      "city": "Delhi",
+      "contact": [
+        {
+          "platform": "Reddit",
+          "value": "u/diecastcollector",
+          "url": "https://www.reddit.com/user/diecastcollector"
+        }
+      ],
+      "brand": "Pop Race",
+      "casting": "Porsche RWB 930",
+      "details": "Brand new, unopened. Collector-friendly packaging. Selling because of duplicate.",
+      "have": "",
+      "want": "",
+      "price": "₹2,400",
+      "image": ""
+    }
+  ]
+}

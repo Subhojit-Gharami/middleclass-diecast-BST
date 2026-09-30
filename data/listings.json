@@ -1,0 +1,27 @@
+{
+  "nextNumber": 6,
+  "listings": [
+    {
+      "id": "MCD005",
+      "type": "ISO",
+      "postedAt": "2026-09-30T19:23:50+05:30",
+      "expiresAt": "2026-10-07T19:23:50+05:30",
+      "owner": "Test",
+      "city": "Test City",
+      "locality": "Test Locality",
+      "contact": [
+        {
+          "platform": "Instagram",
+          "value": "Test"
+        }
+      ],
+      "brand": "Test",
+      "casting": "Test Casting",
+      "details": "Test Paragraph",
+      "have": "",
+      "want": "Test",
+      "price": "",
+      "image": ""
+    }
+  ]
+}

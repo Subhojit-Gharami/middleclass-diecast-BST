@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Middleclass Diecast BST — a simple India-focused Buy, Sell, Trade and ISO board for diecast collectors.">
+<title>Middleclass Diecast BST — Collect Responsibly</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="nav container">
+    <a class="brand" href="#">
+      <span class="brand-mark">MCD</span>
+      <span><strong>Middleclass Diecast BST</strong><small>Collect Responsibly.</small></span>
+    </a>
+    <div class="header-socials">
+      <a class="header-social" href="https://www.instagram.com/middleclass_diecast/" target="_blank" rel="noopener">Instagram ↗</a>
+      <a class="header-social" href="https://www.youtube.com/@MiddleclassGarage" target="_blank" rel="noopener">YouTube ↗</a>
+      <button id="themeToggle" class="theme-btn" type="button">☾ Dark</button>
+    </div>
+    <nav>
+      <a href="#browse">Browse</a>
+      <a href="#post">Post Listing</a>
+      <a href="#rules">Safe Trading</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">INDIA • BUY / SELL / TRADE / ISO</p>
+      <h1>Find your next casting.<br><span>Trade it. Sell it. ISO it.</span></h1>
+      <p class="hero-copy">A simple community board for diecast collectors in India. Search listings, check the details, and contact the collector directly through the contact method they provide.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#browse">Browse listings</a>
+        <a class="btn secondary" href="#post">Post your listing</a>
+      </div>
+      <p class="micro-note">Listings automatically expire after 7 days to keep the board fresh.</p>
+    </div>
+    <div class="hero-card">
+      <div class="mini-stat"><b id="activeCount">0</b><span>active listings</span></div>
+      <div class="mini-stat"><b>7 days</b><span>listing lifetime</span></div>
+      <div class="mini-stat"><b>India</b><span>collector focused</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="browse" class="section">
+  <div class="container">
+    <div class="section-head">
+      <div><p class="eyebrow">MARKETPLACE</p><h2>Browse collector listings</h2></div>
+      <button id="clearFilters" class="text-btn">Clear filters</button>
+    </div>
+    <div class="search-panel">
+      <div class="search-row">
+        <input id="searchInput" type="search" placeholder="Search casting, brand, city, seller..." autocomplete="off">
+        <button class="search-icon" id="searchButton" aria-label="Search">⌕</button>
+      </div>
+      <div class="filters">
+        <button class="filter active" data-type="ALL">All</button>
+        <button class="filter" data-type="ISO">ISO</button>
+        <button class="filter" data-type="TRADE">Trade</button>
+        <button class="filter" data-type="SELL">Sell</button>
+        <select id="brandFilter"><option value="">All brands</option></select>
+        <select id="cityFilter"><option value="">All cities</option></select>
+        <select id="sortFilter">
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
+          <option value="expiry">Expiring soon</option>
+        </select>
+      </div>
+    </div>
+    <div id="listingGrid" class="listing-grid"></div>
+    <div id="emptyState" class="empty hidden">
+      <div class="empty-icon">⌁</div>
+      <h3>No matching listings</h3>
+      <p>Try a different casting, brand, city or listing type.</p>
+      <button class="btn secondary" id="emptyClear">Reset filters</button>
+    </div>
+  </div>
+</section>
+
+<section id="post" class="section soft">
+  <div class="container form-wrap">
+    <div class="section-head">
+      <div><p class="eyebrow">COMMUNITY BOARD</p><h2>Post a listing</h2><p class="section-copy">Choose ISO, Trade or Sell. Only the fields relevant to your post will appear.</p></div>
+    </div>
+    <form id="listingForm" class="listing-form">
+      <div class="form-section">
+        <h3>1. Listing type</h3>
+        <div class="type-cards">
+          <label><input type="radio" name="type" value="ISO" checked><span><b>ISO</b><small>I'm searching for a casting</small></span></label>
+          <label><input type="radio" name="type" value="TRADE"><span><b>Trade</b><small>I have something to trade</small></span></label>
+          <label><input type="radio" name="type" value="SELL"><span><b>Sell</b><small>I want to sell a casting</small></span></label>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3>2. Your details</h3>
+        <div class="form-grid">
+          <label>Name / collector name<input required name="owner" maxlength="60" placeholder="e.g. Kakashi"></label>
+          <label>City<input required name="city" maxlength="50" placeholder="e.g. Kolkata"></label>
+          <label class="full">Locality <span class="optional">(optional)</span><input name="locality" maxlength="80" placeholder="e.g. Salt Lake / New Town"></label>
+        </div>
+        <div class="contact-builder">
+          <div class="builder-head"><span>Contact options</span><button type="button" id="addContact" class="text-btn">+ Add another</button></div>
+          <div id="contacts"></div>
+          <small class="hint">Add at least one way for collectors to contact you. Use a full profile URL where possible.</small>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3>3. Diecast details</h3>
+        <div class="form-grid">
+          <label>Brand<input required name="brand" maxlength="60" placeholder="Hot Wheels, Mini GT, Pop Race..."></label>
+          <label>Casting name<input required name="casting" maxlength="100" placeholder="e.g. RWB 930"></label>
+          <label class="full">Details<textarea required name="details" rows="5" maxlength="700" placeholder="Condition, card/box, variant, locality, preferences, anything a collector should know..."></textarea></label>
+        </div>
+        <div id="isoFields" class="conditional">
+          <label>I'm looking for<textarea name="want" rows="3" maxlength="400" placeholder="Casting / variation / acceptable alternatives"></textarea></label>
+        </div>
+        <div id="tradeFields" class="conditional hidden">
+          <div class="form-grid">
+            <label>I have<textarea name="have" rows="3" maxlength="400" placeholder="What you are offering"></textarea></label>
+            <label>I want<textarea name="wantTrade" rows="3" maxlength="400" placeholder="What you want in exchange"></textarea></label>
+          </div>
+        </div>
+        <div id="sellFields" class="conditional hidden">
+          <label>Asking price <span class="optional">(optional)</span><input name="price" maxlength="30" placeholder="e.g. ₹1,500"></label>
+        </div>
+      </div>
+      <div class="notice"><b>7-day rule:</b> Your listing will be visible for 7 days. If it is still active, repost it after expiry to keep the board clean and current.</div>
+      <button class="btn primary submit" type="submit">Create listing</button>
+      <p id="formMessage" class="form-message"></p>
+    </form>
+  </div>
+</section>
+
+<section id="rules" class="section">
+  <div class="container">
+    <div class="section-head"><div><p class="eyebrow">COLLECT SMART</p><h2>Simple rules for safer trades</h2></div></div>
+    <div class="rules-grid">
+      <article><b>01</b><h3>Verify first</h3><p>Ask for current photos/videos, packaging details and proof of ownership before paying or shipping.</p></article>
+      <article><b>02</b><h3>Use your judgement</h3><p>Middleclass Diecast BST is a community listing board, not a payment or escrow service. Deal directly at your own risk.</p></article>
+      <article><b>03</b><h3>Keep it honest</h3><p>Describe card, blister, box, paint and condition accurately. Do not list counterfeit or misleading items.</p></article>
+      <article><b>04</b><h3>Meet safely</h3><p>For local deals, choose a public place and follow your own safety precautions.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="support">
+  <div class="container support-box">
+    <div>
+      <p class="eyebrow">BUILT BY A COLLECTOR</p>
+      <h2>Enjoying the board?</h2>
+      <p>I'm growing a small diecast + automotive community. If you like collecting, unboxings and car content, a follow on Instagram or YouTube genuinely helps.</p>
+    </div>
+    <div class="support-links">
+      <a class="support-link" href="https://www.instagram.com/middleclass_diecast/" target="_blank" rel="noopener">Instagram <span>@middleclass_diecast ↗</span></a>
+      <a class="support-link" href="https://www.youtube.com/@MiddleclassGarage" target="_blank" rel="noopener">YouTube <span>Middleclass Garage ↗</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© 2026 Middleclass Diecast BST</span><strong>Collect Responsibly.</strong>
+    <span>Community board • India</span>
+  </div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
